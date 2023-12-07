@@ -44,21 +44,20 @@ class ProductController extends Controller
 
     public function update(Request $request, Product $product)
     {
-        // Валідація даних форми
         $validatedData = $request->validate([
-            'new_imagePath' => 'required|string',
-            'new_title' => 'required|string',
-            'new_description' => 'required|string',
-            'new_price' => 'required|numeric',
+            'new_imagePath' => 'nullable|string',
+            'new_title' => 'nullable|string',
+            'new_description' => 'nullable|string',
+            'new_price' => 'nullable|numeric',
+        ]);
+    
+        $product->update([
+            'imagePath' => $validatedData['new_imagePath'] ?? $product->imagePath,
+            'title' => $validatedData['new_title'] ?? $product->title,
+            'description' => $validatedData['new_description'] ?? $product->description,
+            'price' => $validatedData['new_price'] ?? $product->price,
         ]);
 
-        // Оновлення даних в базі даних
-        $product->update([
-            'imagePath' => $validatedData['new_imagePath'],
-            'title' => $validatedData['new_title'],
-            'description' => $validatedData['new_description'],
-            'price' => $validatedData['new_price'],
-        ]);
         
         $products = Product::all();
         return view('shop.admin_index', ['products' => $products]);

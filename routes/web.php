@@ -23,4 +23,4 @@ Route::get('/admin/product', [UserController::class, 'getAdminProduct'])->name('
 Route::get('/admin/product/{id}', 'App\Http\Controllers\ProductController@AdminProductView');
 
 
-Route::patch('/admin/product/{id}', [ProductController::class, 'update'])->name('products.update');
+Route::patch('/admin/product/{product:id}', [ProductController::class, 'update'])->name('products.update');

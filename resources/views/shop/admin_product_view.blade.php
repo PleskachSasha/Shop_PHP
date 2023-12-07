@@ -18,32 +18,32 @@
     </div>
 
      <!-- Форма для оновлення даних -->
-    <div>
-        <form method="post" action="{{ route('products.update', $product->id) }}">
-            @csrf
-            @method('PATCH')
-            <div class="mb-3">
-                <label for="new_imagePath" class="form-label">Новий foto</label>
-                <input type="text" class="form-control" id="new_imagePath" name="new_imagePath" required>
-            </div>
+     <div>
+    <form method="post" action="{{ route('products.update', $product->id) }}">
+        @csrf
+        @method('PATCH')
+        <div class="mb-3">
+            <label for="new_imagePath" class="form-label">Новий foto</label>
+            <input type="text" class="form-control" id="new_imagePath" name="new_imagePath">
+        </div>
 
-            <div class="mb-3">
-                <label for="new_title" class="form-label">Новий заголовок</label>
-                <input type="text" class="form-control" id="new_title" name="new_title" required>
-            </div>
+        <div class="mb-3">
+            <label for="new_title" class="form-label">Новий заголовок</label>
+            <input type="text" class="form-control" id="new_title" name="new_title">
+        </div>
 
-            <div class="mb-3">
-                <label for="new_description" class="form-label">Новий опис</label>
-                <textarea class="form-control" id="new_description" name="new_description" rows="3" required></textarea>
-            </div>
+        <div class="mb-3">
+            <label for="new_description" class="form-label">Новий опис</label>
+            <textarea class="form-control" id="new_description" name="new_description" rows="3"></textarea>
+        </div>
 
-            <div class="mb-3">
-                <label for="new_price" class="form-label">Нова ціна</label>
-                <input type="number" class="form-control" id="new_price" name="new_price" required>
-            </div>
+        <div class="mb-3">
+            <label for="new_price" class="form-label">Нова ціна</label>
+            <input type="number" class="form-control" id="new_price" name="new_price">
+        </div>
 
-            <button type="submit" class="btn btn-primary">Оновити дані</button>
-        </form>
-        <a href="#" class="btn btn-danger">Купити</a>
-    </div>
+        <button type="submit" class="btn btn-primary">Оновити дані</button>
+    </form>
+    <a href="#" class="btn btn-danger">Купити</a>
+</div>
 @endsection
